@@ -1,0 +1,30 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-sm">
+  <div class="container">
+    <h2>Flickr Search Photos App</h2>
+  </div>
+  </nav>
+<br>
+<div class="container">
+
+  <div class="form-group">
+    <input type="search" class="form-control" (keyup)="searchPhoto($event)" placeholder="Search photos">
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let photo of photos">
+      <div class="card">
+        <a href="{{photo.url}}_b.jpg">
+          <img src="{{photo.url}}_m.jpg" title="{{photo.title}}">
+
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+  </div>
+</div>
